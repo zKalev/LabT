@@ -1,0 +1,8 @@
+com/labirinty/zkalev/controllers/HomeController.class
+com/labirinty/zkalev/services/impl/GoodsServiceImpl.class
+com/labirinty/zkalev/services/GoodsService.class
+com/labirinty/zkalev/config/WebMvcConfig.class
+com/labirinty/zkalev/dao/model/GoodsInStock.class
+com/labirinty/zkalev/dao/GoodsDao.class
+com/labirinty/zkalev/config/AppConfig.class
+com/labirinty/zkalev/config/AppInitializer.class
