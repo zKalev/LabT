@@ -8,7 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "goods")
@@ -19,10 +20,10 @@ public class GoodsInStock {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@NotNull
+	@NotBlank
 	@Column(name = "good_name")
 	private String name;
-	@NotNull
+
 	@Column(name = "in_stock")
 	private Integer amountInstock;
 

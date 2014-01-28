@@ -2,9 +2,12 @@ package com.labirinty.zkalev.config;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -18,21 +21,22 @@ import com.labirinty.zkalev.services.GoodsService;
 import com.labirinty.zkalev.services.impl.GoodsServiceImpl;
 
 @Configuration
+@PropertySource("file:///${APP_CONFIG}")
 @ComponentScan(basePackages = { "com.labirinty.zkalev" })
 @EnableJpaRepositories(basePackages = "com.labirinty.zkalev.dao")
 public class AppConfig {
 
-	// @Value("${db.host}")
-	private String dbHost = "localhost:3306";
+	@Value("${db.host}")
+	private String dbHost;
 
-	// @Value("${db.name}")
-	private String dbName = "goods";
+	@Value("${db.name}")
+	private String dbName;
 
-	// @Value("${db.username}")
-	private String dbUsername = "root";
+	@Value("${db.username}")
+	private String dbUsername;
 
-	// @Value("${db.password}")
-	private String dbPassword = "zkalev";
+	@Value("${db.password}")
+	private String dbPassword;
 
 	@Bean
 	public GoodsService getGootsService() {
@@ -76,5 +80,10 @@ public class AppConfig {
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		return new JpaTransactionManager();
+	}
+
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+		return new PropertySourcesPlaceholderConfigurer();
 	}
 }
