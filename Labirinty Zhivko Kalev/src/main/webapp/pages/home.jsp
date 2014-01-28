@@ -16,10 +16,10 @@
 
 			<table>
 				<tr>
-					<td><form:input path="name" /></td>
+					<td>Name:<form:input path="name" /></td>
 				</tr>
 				<tr>
-					<td><form:input path="amountInstock" /></td>
+					<td>Amount:<form:input path="amountInstock" /></td>
 				</tr>
 				<tr align="center">
 					<td colspan="5" align="right"><input type="submit" value="add"
